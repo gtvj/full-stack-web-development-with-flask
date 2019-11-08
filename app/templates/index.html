@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-    {% include "includes/head.html" %}
-<body>
-    {% include "includes/nav.html" %}
-    <h1>{{ title }}</h1>
-    
+{% extends "layout.html" %}
+
+{% block content %}
     {% if new_user %}
         <p>It seems you are a new user. Welcome!</p>
     {% else %}
         <p>Welcome back!</p>
     {% endif %}
-
-    {% include "includes/footer.html" %}
-</body>
-</html>
+{% endblock %}
