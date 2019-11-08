@@ -8,7 +8,15 @@
     <title>Document</title>
 </head>
 <body>
+    {% include "includes/nav.html" %}
     <h1>Hello universe</h1>
+    
+    {% if new_user %}
+        <p>It seems you are a new user. Welcome!</p>
+    {% else %}
+        <p>Welcome back!</p>
+    {% endif %}
+
     {% include "includes/footer.html" %}
 </body>
 </html>
