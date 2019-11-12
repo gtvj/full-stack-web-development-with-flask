@@ -1,5 +1,5 @@
 from app import app
-from flask import render_template
+from flask import render_template, request
 
 @app.route('/')
 @app.route('/home')
@@ -25,3 +25,8 @@ def data():
 @app.route('/people/<user>')
 def people(user="Clarence"):
     return render_template("people.html", user=user)
+
+@app.route('/add_person', methods=["GET", "POST"])
+def add_person():
+    name = request.form.get('name')
+    return render_template("add_person.html", name=name)
