@@ -10,3 +10,12 @@ def home():
 @app.route('/thoughts')
 def thoughts():
     return render_template("thoughts.html", title="Thoughts page")
+
+
+@app.route('/data')
+def data():
+    some_data = [{ "name": 'Item one', "id": "1" }, { "name": 'Item two', "id": "2" }]
+
+    print(some_data)
+
+    return render_template("data.html", some_data=some_data)

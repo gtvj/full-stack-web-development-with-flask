@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block content %}
+        <p>Here is some data for your enjoyment</p>
+
+        <ul>
+            {% for data in some_data %}
+                <li>{{ data["name"] }}</li>
+            {% endfor %}
+        </ul>
+{% endblock %}
