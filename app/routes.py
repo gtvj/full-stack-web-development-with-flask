@@ -19,3 +19,9 @@ def data():
     print(some_data)
 
     return render_template("data.html", some_data=some_data)
+
+
+@app.route('/people')
+@app.route('/people/<user>')
+def people(user="Clarence"):
+    return render_template("people.html", user=user)
