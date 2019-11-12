@@ -1,5 +1,5 @@
 from app import app
-from flask import render_template, request
+from flask import render_template, request, json, Response
 
 some_data = [{ "name": 'Item one', "id": "1" }, { "name": 'Item two', "id": "2" }]
 
@@ -30,3 +30,15 @@ def people(user="Clarence"):
 def add_person():
     name = request.form.get('name')
     return render_template("add_person.html", name=name)
+
+@app.route('/api')
+@app.route('/api/<id>')
+def api(id=None): 
+    if(id == None):
+        data = some_data
+    else:
+        data = list(filter(lambda x: x["id"] == id, some_data))
+        print(data)
+
+
+    return Response(json.dumps(data), mimetype="application/json")
