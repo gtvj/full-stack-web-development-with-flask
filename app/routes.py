@@ -1,6 +1,8 @@
 from app import app
 from flask import render_template, request
 
+some_data = [{ "name": 'Item one', "id": "1" }, { "name": 'Item two', "id": "2" }]
+
 @app.route('/')
 @app.route('/home')
 def home():
@@ -14,10 +16,8 @@ def thoughts():
 
 @app.route('/data')
 def data():
-    some_data = [{ "name": 'Item one', "id": "1" }, { "name": 'Item two', "id": "2" }]
 
     print(some_data)
-
     return render_template("data.html", some_data=some_data)
 
 
